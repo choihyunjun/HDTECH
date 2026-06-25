@@ -35,7 +35,8 @@
       "Bash(cp \"C:/Users/dorit/Desktop/새 폴더 \\(5\\)/ChatGPT Image 2026년 6월 24일 오후 06_44_13.png\" \"C:/Users/dorit/Documents/Claude/Projects/금형프로그램/assets/img/logo.png\" 2>&1 && echo \"OK\")",
       "Bash(python3 -c \"from PIL import Image; print\\('ok'\\)\")",
       "Bash(python -c \"from PIL import Image; print\\('ok'\\)\")",
-      "Bash(python -)"
+      "Bash(python -)",
+      "Bash(git add *)"
     ],
     "additionalDirectories": [
       "C:\\xampp\\mysql\\bin",

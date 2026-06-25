@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/auth.php';
 // $pageId: 현재 페이지 식별자 ('list' | 'card')
 // $pageTitle: 페이지 타이틀
 ?>
@@ -35,6 +36,10 @@
                 <span>금형 목록</span>
             </a>
         </nav>
+        <div class="sidebar-user">
+            <span class="sidebar-username"><?= htmlspecialchars($_SESSION['display_name'] ?? '') ?></span>
+            <a href="/mold/logout.php" class="logout-btn">로그아웃</a>
+        </div>
         <div class="sidebar-footer">HAEDEUK TECH</div>
     </aside>
 
