@@ -1,0 +1,47 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"C:/xampp/htdocs/\" 2>/dev/null && echo \"---htdocs OK---\" || echo \"htdocs 없음\")",
+      "Read(//c/xampp/htdocs/**)",
+      "Bash(ls \"C:/xampp/\" 2>/dev/null | head -20)",
+      "Read(//c/xampp/**)",
+      "Bash(C:/xampp/mysql/bin/mysql.exe --version)",
+      "Bash(cmd //c \"mklink /J \\\\\"C:\\\\\\\\xampp\\\\\\\\htdocs\\\\\\\\mold\\\\\" \\\\\"C:\\\\\\\\Users\\\\\\\\dorit\\\\\\\\Documents\\\\\\\\Claude\\\\\\\\Projects\\\\\\\\금형프로그램\\\\\"\")",
+      "Bash(C:/xampp/mysql/bin/mysql.exe -u root -e \"SOURCE C:/Users/dorit/Documents/Claude/Projects/금형프로그램/db/schema.sql;\")",
+      "Bash(C:/xampp/mysql/bin/mysql.exe -u root -pa12110415 -e \"SOURCE C:/Users/dorit/Documents/Claude/Projects/금형프로그램/db/schema.sql;\")",
+      "Bash(C:/xampp/mysql/bin/mysqladmin.exe -u root password \"a12110415\")",
+      "PowerShell(Stop-Service -Name \"mysql\" -Force; Start-Sleep -Seconds 2; \\(Get-Service -Name \"mysql\"\\).Status)",
+      "Bash(C:/xampp/mysql_stop.bat)",
+      "Bash(C:/xampp/stop_mysql.bat)",
+      "Bash(C:/xampp/mysql/resetroot.bat)",
+      "Bash(C:/xampp/mysql_start.bat)",
+      "Bash(C:/xampp/mysql/bin/mysql.exe -u root -e \"SELECT 1;\")",
+      "Bash(C:/xampp/mysql/bin/mysql.exe -u root --skip-password -e \"ALTER USER 'root'@'localhost' IDENTIFIED BY 'a12110415'; FLUSH PRIVILEGES;\")",
+      "PowerShell(Get-Process -Name \"mysqld\" -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep -Seconds 2; \\(Get-Process -Name \"mysqld\" -ErrorAction SilentlyContinue\\) -eq $null)",
+      "PowerShell(Get-Process -Name \"mysqld\" -ErrorAction SilentlyContinue)",
+      "Bash(C:/xampp/mysql/bin/mysql.exe -u root -e \"SELECT 'connected';\")",
+      "Bash(C:/xampp/mysql/bin/mysql.exe -u root -e ' *)",
+      "Bash(C:/xampp/mysql/bin/mysqladmin.exe -u root -pa12110415 shutdown)",
+      "Bash(C:/xampp/mysql/bin/mysql.exe -u root -pa12110415 -e \"SELECT 'OK' AS status;\")",
+      "Bash(C:/xampp/mysql/bin/mysql.exe -u root -pa12110415)",
+      "Bash(C:/xampp/mysql/bin/mysql.exe -u root -pa12110415 mold_db -e \"SHOW TABLES; SELECT mold_no, customer, product_name FROM molds;\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost/mold/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost/mold/index.php)",
+      "Bash(curl -s -w \"\\\\nHTTP:%{http_code}\" http://localhost/mold/index.php)",
+      "Bash(curl -s -w \"HTTP:%{http_code}\" http://localhost/mold/)",
+      "Bash(curl -s http://localhost/mold/)",
+      "Bash(ls \"C:/Users/dorit/Desktop/새 폴더 \\(5\\)/\")",
+      "Read(//c/Users/dorit/Desktop/새 폴더 \\(5\\)/**)",
+      "Bash(cp \"C:/Users/dorit/Desktop/새 폴더 \\(5\\)/ChatGPT Image 2026년 6월 24일 오후 06_44_13.png\" \"C:/Users/dorit/Documents/Claude/Projects/금형프로그램/assets/img/logo.png\" 2>&1 && echo \"OK\")",
+      "Bash(python3 -c \"from PIL import Image; print\\('ok'\\)\")",
+      "Bash(python -c \"from PIL import Image; print\\('ok'\\)\")",
+      "Bash(python -)"
+    ],
+    "additionalDirectories": [
+      "C:\\xampp\\mysql\\bin",
+      "C:\\Users\\dorit\\Desktop\\새 폴더 (5)",
+      "C:\\Users\\dorit\\Documents\\Claude\\Projects\\�������α׷�\\assets",
+      "C:\\Users\\dorit\\Desktop\\�� ���� (5)"
+    ]
+  }
+}
