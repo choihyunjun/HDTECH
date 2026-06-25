@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>로그인 — 해득테크</title>
+<link rel="icon" href="/mold/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="/mold/assets/css/style.css">
 </head>
 <body class="login-page">
