@@ -249,6 +249,7 @@ async function loadCard(id) {
 }
 
 async function saveCard() {
+  try {
     const id = parseInt(document.getElementById('moldId').value || '0');
     const payload = {
         id,
@@ -281,14 +282,16 @@ async function saveCard() {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload)
     });
-    const data = await res.json();
+    const text = await res.text();
+    let data;
+    try { data = JSON.parse(text); }
+    catch(e) { showToast('서버 응답 오류: ' + text.slice(0,80), 'error'); return; }
+
     if (data.success) {
         if (!id && data.id) {
             await uploadPendingImages(data.id);
             history.replaceState(null, '', '/mold/card.php?id=' + data.id);
             document.getElementById('moldId').value = data.id;
-            document.getElementById('infoTable').classList.add('info-locked');
-            document.getElementById('btnEditInfo').style.display = '';
         }
         isDirty = false;
         document.getElementById('infoTable').classList.add('info-locked');
@@ -297,6 +300,9 @@ async function saveCard() {
     } else {
         showToast(data.error || '저장 실패', 'error');
     }
+  } catch(e) {
+    showToast('오류: ' + e.message, 'error');
+  }
 }
 
 function newCard() {
