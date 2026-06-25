@@ -36,7 +36,9 @@
       "Bash(python3 -c \"from PIL import Image; print\\('ok'\\)\")",
       "Bash(python -c \"from PIL import Image; print\\('ok'\\)\")",
       "Bash(python -)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ],
     "additionalDirectories": [
       "C:\\xampp\\mysql\\bin",
