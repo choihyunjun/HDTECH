@@ -32,7 +32,7 @@ require_once 'includes/layout.php';
             <td colspan="6" class="card-title-cell">금 형 이 력 카 드</td>
             <th class="mold-no-label" style="width:80px">금 형 번 호</th>
             <td class="mold-no-value" style="width:130px">
-                <input type="text" id="moldNo" placeholder="예: PS-QC-0001"
+                <input type="text" id="moldNo" placeholder="금형번호 입력"
                        style="text-align:center;font-weight:700;color:var(--primary);font-size:13px;width:100%">
                 <input type="hidden" id="moldId" value="">
             </td>
@@ -210,24 +210,11 @@ window.onload = async function () {
     initImageUpload(moldId || null);
     if (moldId) {
         await loadCard(moldId);
-        // 기존 카드: 기본정보 잠금
         document.getElementById('infoTable').classList.add('info-locked');
         document.getElementById('btnEditInfo').style.display = '';
-    } else {
-        await assignNewMoldNo();
     }
     startDirtyTracking();
 };
-
-async function assignNewMoldNo() {
-    try {
-        const res  = await fetch('/mold/api/molds.php?action=nextno&prefix=PS-QC');
-        const data = await res.json();
-        if (data.mold_no) document.getElementById('moldNo').value = data.mold_no;
-    } catch(e) {
-        // 자동채번 실패시 직접 입력
-    }
-}
 
 async function loadCard(id) {
     const res = await fetch(`/mold/api/molds.php?action=get&id=${id}`);
